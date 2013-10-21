@@ -8,6 +8,7 @@ build:
         code: |
           cp /usr/lib/libv8.so src/EventStore/libs
     - install-packages:
+        name: install mono-complete
         packages: mono-complete 
     - script:
         name: install mono 3.2.3
