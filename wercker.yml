@@ -3,6 +3,10 @@ build:
   steps:
     - install-packages:
         packages: libv8-dev gettext libucimf-dev libicu48 libwebkitgtk-dev libicu-dev
+    - script:
+        name: Echo lib
+        code: |
+          ls -al /usr/lib
     - script: 
         name: Copy .so files
         code: |
