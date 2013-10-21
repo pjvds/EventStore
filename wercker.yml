@@ -7,7 +7,7 @@ build:
         name: Echo lib
         code: |
           ls -al /usr/lib
-    - scruot:
+    - script:
         name: find libicui18n
         code: |
           sudo find / -iname 'libicui18n'
