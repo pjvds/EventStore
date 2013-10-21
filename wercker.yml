@@ -2,13 +2,15 @@ box: wercker-labs/docker
 build:
   steps:
     - install-packages:
-        packages: mono-complete libv8-dev gettext libucimf-dev
+        packages: libv8-dev gettext libucimf-dev libicu48 libwebkitgtk-dev libicu-dev
     - script: 
         name: Copy .so files
         code: |
           cp /usr/lib/libv8.so src/EventStore/libs
           cp /usr/lib/libicui18n.so src/EventStore/libs
           cp /usr/lib/libicuuc.so src/EventStore/libs
+    - install-packages:
+        packages: mono-complete 
     - script:
         name: install mono 3.2.3
         code: |
