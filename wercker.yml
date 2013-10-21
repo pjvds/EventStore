@@ -1,0 +1,8 @@
+box: wercker-labs/docker
+build:
+  steps:
+    - install-packages:
+        packages: mono-complete
+    - script:
+        name: build eventstore
+        code: ./build.sh
