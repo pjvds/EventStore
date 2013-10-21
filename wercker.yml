@@ -2,21 +2,33 @@ box: wercker-labs/docker
 build:
   steps:
     - install-packages:
-        packages: libv8-dev libv8-i18n-dev
+        packages: gettext
     - script: 
-        name: Copy .so files
+        name: Install mono 
         code: |
-          cp /usr/lib/libv8.so src/EventStore/libs
-    - install-packages:
-        name: install mono-complete
-        packages: mono-complete 
+          cd
+          wget http://download.mono-project.com/sources/mono/mono-3.2.3.tar.bz2
+          tar -xf mono-3.2.3.tar.bz2
+          cd mono-3.2.3
+          ./configure --prefix=/usr/local --with-profile2=no --with-profile4_5=no
+          make
+          make install
     - script:
-        name: install mono 3.2.3
+        name: Install mono-tools
         code: |
-          wget https://launchpad.net/~ermshiperete/+archive/monodevelop-beta/+build/5036340/+files/mono-3_3.2.3-1_amd64.deb
-          sudo dpkg -i mono-3_3.2.3-1_amd64.deb
+          cd
+          wget -O mono-tools-master.tar.gz https://github.com/mono/mono-tools/archive/master.tar.gz
+          tar xf mono-tools-master.tar.gz
+          cd mono-tools-master
+          ./configure --prefix=/usr/local
+          make
+          make install
+    # - script:
+    #     name: install mono 3.2.3
+    #     code: |
+    #       wget https://launchpad.net/~ermshiperete/+archive/monodevelop-beta/+build/5036340/+files/mono-3_3.2.3-1_amd64.deb
+    #       sudo dpkg -i mono-3_3.2.3-1_amd64.deb
     - script:
         name: build eventstore
         code: |
-            ./build.sh js1
-            ./build.sh quick
+            ./build.sh full
