@@ -2,7 +2,12 @@ box: wercker-labs/docker
 build:
   steps:
     - install-packages:
-        packages: mono-complete libv8-dev
+        packages: mono-complete
+    - script:
+        name: install mono 3.2.3
+        code: |
+          wget https://launchpad.net/~ermshiperete/+archive/monodevelop-beta/+build/5036340/+files/mono-3_3.2.3-1_amd64.deb
+          sudo dpkg -i mono-3_3.2.3-1_amd64.deb
     - script:
         name: build eventstore
         code: ./build.sh full
