@@ -2,7 +2,7 @@ box: wercker-labs/docker
 build:
   steps:
     - install-packages:
-        packages: libv8-dev libicu-dev
+        packages: libv8-dev libicu-dev libv8-i18n-dev
     - script:
         name: Echo lib
         code: |
