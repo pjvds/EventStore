@@ -2,21 +2,12 @@ box: wercker-labs/docker
 build:
   steps:
     - install-packages:
-        packages: libv8-dev libicu-dev libv8-i18n-dev
-    - script:
-        name: Echo lib
-        code: |
-          ls -al /usr/lib
-    - script:
-        name: find libicui18n
-        code: |
-          sudo find / -iname 'libicui18n'
+        packages: libv8-dev libv8-i18n-dev
     - script: 
         name: Copy .so files
         code: |
           cp /usr/lib/libv8.so src/EventStore/libs
-          cp /usr/lib/libicui18n.so src/EventStore/libs
-          cp /usr/lib/libicuuc.so src/EventStore/libs
+          cp /usr/lib/libjs1.so src/EventStore/libs
     - install-packages:
         packages: mono-complete 
     - script:
