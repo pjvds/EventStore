@@ -5,4 +5,4 @@ build:
         packages: mono-complete
     - script:
         name: build eventstore
-        code: ./build.sh
+        code: ./build.sh full
