@@ -2,7 +2,7 @@ box: wercker-labs/docker
 build:
   steps:
     - install-packages:
-        packages: mono-complete
+        packages: mono-complete libv8-dev
     - script:
         name: build eventstore
         code: ./build.sh full
