@@ -1,7 +1,12 @@
-box: ami-f14e1298
+box: ami-1bbfe372
 box-type: ami
 build:
   steps:
+    - script:
+        name: Copy v8 libs
+        code: |
+          cp /usr/lib/libv8.so ./src/EventStore/libs
+          cp /usr/lib/libjs1.so ./src/EventStore/libs
     - script:
         name: build eventstore
         code: |
