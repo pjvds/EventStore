@@ -1,33 +1,7 @@
-box: wercker-labs/docker
+box: ami-f14e1298
+box-type: ami
 build:
   steps:
-    - install-packages:
-        packages: gettext
-    - script: 
-        name: Install mono 
-        code: |
-          cd
-          wget http://download.mono-project.com/sources/mono/mono-3.2.3.tar.bz2
-          tar -xf mono-3.2.3.tar.bz2
-          cd mono-3.2.3
-          ./configure --prefix=/usr/local --with-profile2=no --with-profile4_5=no
-          make
-          make install
-    - script:
-        name: Install mono-tools
-        code: |
-          cd
-          wget -O mono-tools-master.tar.gz https://github.com/mono/mono-tools/archive/master.tar.gz
-          tar xf mono-tools-master.tar.gz
-          cd mono-tools-master
-          ./configure --prefix=/usr/local
-          make
-          make install
-    # - script:
-    #     name: install mono 3.2.3
-    #     code: |
-    #       wget https://launchpad.net/~ermshiperete/+archive/monodevelop-beta/+build/5036340/+files/mono-3_3.2.3-1_amd64.deb
-    #       sudo dpkg -i mono-3_3.2.3-1_amd64.deb
     - script:
         name: build eventstore
         code: |
