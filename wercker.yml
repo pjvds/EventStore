@@ -1,9 +1,7 @@
-box: ami-f7f0ac9e
+box: ami-61eeb208
 box-type: ami
 build:
   steps:
-    - install-packages:
-        packages: libv8-dev
     - script:
         name: Copy v8 libs
         code: |
