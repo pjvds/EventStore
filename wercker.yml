@@ -3,9 +3,6 @@ box-type: ami
 build:
   steps:
     - script:
-        name: Xbuild
-        code: xbuild
-    - script:
         name: Copy libs
         code: |
           cp -r $HOME/EventStore/src/EventStore/libs/{include,lib*} $WERCKER_SOURCE_DIR/src/EventStore/libs
