@@ -9,4 +9,4 @@ build:
     - script:
         name: build eventstore
         code: |
-            ./build.sh incremental
+            ./build.sh js1
