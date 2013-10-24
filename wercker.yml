@@ -6,6 +6,7 @@ build:
         name: Copy libs
         code: |
           cp -r $HOME/EventStore/src/EventStore/libs/{include,lib*} $WERCKER_SOURCE_DIR/src/EventStore/libs
+          cp -r $HOME/EventStore/v8 $WERCKER_SOURCE_DIR/
     - script:
         name: build eventstore
         code: |
