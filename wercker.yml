@@ -1,4 +1,4 @@
-box: ami-61eeb208
+box: ami-2fe5b946
 box-type: ami
 build:
   steps:
