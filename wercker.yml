@@ -15,10 +15,15 @@ build:
         code: |
             ./build.sh quick
     - script:
+        name: Staticly link
+        code: |
+            cd bin/eventstore/release/anycpu
+            mkbundle --static EventStore.SingleNode.exe -o EventStore -L $(pwd)
+    - script:
         name: copy output
         code: |
           mkdir $WERCKER_OUTPUT_DIR/bin
-          mv bin/eventstore/release/anycpu/* $WERCKER_OUTPUT_DIR/bin
+          mv bin/eventstore/release/anycpu/EventStore $WERCKER_OUTPUT_DIR/bin
           mv Dockerfile $WERCKER_OUTPUT_DIR
 deploy:
   steps:
