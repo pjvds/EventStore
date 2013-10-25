@@ -34,3 +34,7 @@ deploy:
         name: Build container
         code: |
           docker build -t=pjvds/eventstore .
+    - script:
+        name: Push container
+        code: |
+          docker push pjvds/eventstore
