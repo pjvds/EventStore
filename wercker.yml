@@ -15,11 +15,6 @@ build:
         code: |
             ./build.sh quick
     - script:
-        name: Staticly link
-        code: |
-            cd bin/eventstore/release/anycpu
-            mkbundle -o EventStore -L $(pwd) --deps --static EventStore.SingleNode.exe EventStore.Core.dll EventStore.Common NLog Newtonsoft.Json EventStore.Transport.Tcp.dll EventStore.BufferManagement.dll protobuf-net.dll EventStore.Transport.Http.dll EventStore.Projections.Core.dll EventStore.Web.dll EventStore.Web.Playground.exe
-    - script:
         name: copy output
         code: |
           mkdir $WERCKER_OUTPUT_DIR/bin
