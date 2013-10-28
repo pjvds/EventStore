@@ -18,7 +18,7 @@ build:
         name: copy output
         code: |
           mkdir $WERCKER_OUTPUT_DIR/bin
-          mv bin/eventstore/release/anycpu/EventStore $WERCKER_OUTPUT_DIR/bin
+          mv bin/eventstore/release/anycpu/ $WERCKER_OUTPUT_DIR/bin
           mv Dockerfile $WERCKER_OUTPUT_DIR
 deploy:
   steps:
