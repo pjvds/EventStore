@@ -20,5 +20,5 @@ ADD bin/ $EVENTSTORE_BIN
 
 EXPOSE 1113:1113
 EXPOSE 2113:2113
-ENTRYPOINT ["mono","$EVENTSTORE_BIN/EventStore.SingleNode.exe","--ip=0.0.0.0"]
-CMD ["--http-prefix=http://*:2113/", "--db $EVENTSTORE_DB", "--log $EVENTSTORE_LOG"]
+ENTRYPOINT ["mono","/var/lib/eventstore/EventStore.SingleNode.exe","--ip=0.0.0.0"]
+CMD ["--http-prefix=http://*:2113/", "--db /opt/eventstore/db", "--log /var/log/eventstore"]
