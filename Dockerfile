@@ -13,6 +13,4 @@ ADD bin/ /var/lib/eventstore/
 
 EXPOSE 1113
 EXPOSE 2113
-ENTRYPOINT ["mono",
-            "/var/lib/eventstore/EventStore.SingleNode.exe",
-            "--ip=0.0.0.0", "--http-prefix='http://*:2113'"]
+ENTRYPOINT ["mono","/var/lib/eventstore/EventStore.SingleNode.exe","--ip=0.0.0.0", "--http-prefix='http://*:2113'"]
